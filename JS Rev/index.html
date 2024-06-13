@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      // for(let i=0; i<myData.length; i++){
+      //     document.write(`${myData[i]} <br>`)
+      // }
+
+      function getElement() {
+        let myData = [12, 34, 56, 78, 90];
+        let ele = document.getElementById("ele").value
+        if(ele<myData.length){
+            alert(myData[ele]);
+        }else{
+            alert("Please Enter Valid Details ")
+        }
+      
+      }
+    </script>
+  </head>
+  <body>
+    <input type="text" placeholder="Enter Your Number" id="ele" />
+    <button onclick="getElement()">Get Element</button>
+  </body>
+</html>

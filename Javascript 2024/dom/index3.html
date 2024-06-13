@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body style="background-color: black; color: white;" >
+    <ul class="languages">
+      <li class="name">Javascript</li>
+    </ul>
+
+</body>
+<script>
+    function addLang(lang){
+    let li = document.createElement('li')
+    li.appendChild(document.createTextNode(lang))
+    document.querySelector('.languages').append(li)
+    }
+    addLang('C++')
+    addLang('Python')
+    let secondElement = document.querySelector('.languages li:nth-child(2)')
+    let updated = document.createElement('li')
+    updated.innerHTML = 'Php'
+    secondElement.replaceWith(updated)
+
+    let firstElement = document.querySelector('.languages li:first-child')
+    firstElement.remove()
+</script>
+</html>

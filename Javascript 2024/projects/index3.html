@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .btns button{
+          border: 2px solid greenyellow;
+          color: greenyellow;
+          /* border: none; */
+          height: 3rem;
+          width: 8rem;
+          font-size: 16px;
+          background: none;
+        }
+         button:hover{
+            background-color: greenyellow;
+            color: black;
+        }
+    </style>
+</head>
+<body style="background-color: black; color: greenyellow;"  >
+    <p class="clock" ></p>
+     <div class="time" style="display: flex; justify-content: center; font-size: 60px;" >
+
+     </div>
+     <div style="display: flex; justify-content: center;" class="btns">
+        <button onclick="startClock()" >Start Now</button>
+        <button style=" margin-left: 80px;" onclick="stopClock()" >Stop</button>
+        <button style=" margin-left: 80px;" onclick="resetClock()" >Reset</button>
+     </div>
+</body>
+<script>
+    let hour = 0
+    let minute = 0
+    let second = 0
+    let intervalId;
+    function UpdateDisplay(){
+        let time = document.querySelector('.time')
+        time.innerHTML=''
+        let h1 = document.createElement('h1')
+        h1.innerHTML = `${hour<10 ? 0:''}${hour}:${minute<10 ? 0 :""}${minute}:${second<10 ? 0 :''}${second}`
+        time.appendChild(h1)
+
+
+    }
+    function startClock(){
+       intervalId = setInterval(()=>{
+           second++
+           if(second==60){
+              minute++
+              second=0
+           }else if(minute==60){
+               hour++
+               minute=0
+           }
+           UpdateDisplay()
+        },1000)
+        UpdateDisplay()
+    }
+
+    function stopClock(){
+        clearInterval(intervalId)
+        intervalId = null
+    }
+
+    function resetClock(){
+       second =0
+       minute =0
+       hour=0
+       UpdateDisplay()
+    }
+    const p = document.querySelector('.clock')
+     setInterval(()=>{
+    const currentTime = new Date()
+    const clock = currentTime.toLocaleTimeString()
+    p.innerHTML = clock     
+     },1000)
+</script>
+</html>
+

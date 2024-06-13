@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guess the Number</title>
+</head>
+<body>
+    <button onclick="playGame()">Play Game</button>
+    <script>
+        function playGame() {
+            const originalNumber = Math.floor(Math.random() * 100) + 1; // Generate a number between 1 and 100
+            console.log(originalNumber);
+
+            let score = 0;
+
+            for (let i = 0; i < 10; i++) {
+                const userGuessInput = prompt(`Guess the number (between 1 and 100)\nScore: ${score}\nAttempts left: ${10 - i}`);
+
+                if (userGuessInput === null) {
+                    alert('Game canceled.');
+                    break;
+                }
+
+                const userGuess = parseInt(userGuessInput);
+
+                if (isNaN(userGuess) || userGuess < 1 || userGuess > 100) {
+                    alert('Please enter a valid number between 1 and 100.');
+                    i--; // Decrement the loop counter to allow another guess
+                    continue;
+                }
+
+                score++;
+
+                if (userGuess < originalNumber) {
+                    alert('Your guess is too low. Try a higher number.');
+                } else if (userGuess > originalNumber) {
+                    alert('Your guess is too high. Try a lower number.');
+                } else {
+                    alert(`Congratulations! Your guess ${userGuess} is correct. You won with a score of ${score}.`);
+                    break;
+                }
+            }
+
+            if (score === 10) {
+                alert(`Sorry, you've reached the maximum number of attempts. The correct number was ${originalNumber}. Game over.`);
+            }
+        }
+    </script>
+</body>
+</html>

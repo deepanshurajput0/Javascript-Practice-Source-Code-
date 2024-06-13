@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .images, ul, li, img{
+             height: 200px;
+             width: 300px;
+             padding-top: 20px;
+        }
+        body{
+            background-color: black;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <h1 style="color: white; font-family: Arial, Helvetica, sans-serif; font-size: 30px; text-align: center;" >Beautiful Nature</h1>
+       <ul class="images">
+        <li>
+            <img src="https://images.pexels.com/photos/772803/pexels-photo-772803.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" id="nature1"  alt="nature">
+        </li>
+        <li>
+            <img src="https://images.pexels.com/photos/228095/pexels-photo-228095.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" id="nature2" alt="nature2">
+        </li>
+        <li>
+            <img src="https://images.pexels.com/photos/33227/sunrise-phu-quoc-island-ocean.jpg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" id="nature3" alt="nature">
+        </li>
+        <li>
+            <img src="https://images.pexels.com/photos/1526720/pexels-photo-1526720.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" id="nature4" alt="nature">
+        </li>
+        <li>
+            <img src="https://images.pexels.com/photos/2662116/pexels-photo-2662116.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" id="nature5" alt="nature">
+        </li>
+       </ul>
+    </div>
+    <script>
+        // let photos = document.querySelectorAll('img')
+        // console.log(photos)
+        // photos.forEach((photo)=>{
+        //    photo.addEventListener('click',(e)=>{
+        //        if(e.target.id === 'nature1' || e.target.id === 'nature2' || e.target.id === 'nature3' || e.target.id === 'nature4' || e.target.id === 'nature5' ){
+        //           photo.remove()
+        //        }
+        //    })
+        // })
+        let photos = document.querySelector('.images')
+        photos.addEventListener('click',(e)=>{
+            if(e.target.tagName === 'IMG' ){
+                const removeIt = e.target.parentNode
+         removeIt.remove()
+            }
+        
+        })
+    </script>
+</body>
+</html>
+
+

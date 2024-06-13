@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" placeholder="Enter Your Weight in(kg)" id="weight">
+    <input type="text" placeholder="Enter Your Height in(m)" id="meter">
+    <button onclick="calculateBMI()" >Calculate</button>
+</body>
+    <script>
+        let weight = document.querySelector('#weight')
+        let height = document.querySelector('#meter')
+        function calculateBMI(){
+            if(weight.value =='' || isNaN(weight.value) || weight.value<0){
+                alert("please Enter Valid value for weight")
+            }else if(height.value =='' || isNaN(height.value) || height.value<0){
+               alert('Please Enter Valid value for Height')
+            }else{
+            const result =  Number(weight.value) / Math.pow(height.value,2)
+           const data = document.createElement('h1')
+           data.innerHTML = result
+           document.body.appendChild(data)   
+            }
+                   
+        }
+    </script>
+</html>
+
+

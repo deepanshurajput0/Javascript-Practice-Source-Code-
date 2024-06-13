@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const chances = ['stone','paper','scissors']
+let chanceIndex = Math.floor(Math.random()*chances.length)
+const player1 = chances[chanceIndex]
+const player2 = prompt("Enter the Value")
+if(player1 ==='stone' && player2 ==='paper'){
+    alert('Congratulations You won')
+}else if(player1 ==='paper' && player2 ==='scissors'){
+   alert('Congratulations You won')
+}else if(player1 ==='scissors' && player2 ==='stone'){
+    alert('Congratulations You won')
+}else{
+    alert('You lose Try again')
+}
+
+    </script>
+</body>
+</html>

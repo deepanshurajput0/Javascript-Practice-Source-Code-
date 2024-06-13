@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+      <div class="bg-color-changer">
+        <button onclick="Start()" >Start</button>
+        <button onclick="Stop()" >Stop</button>
+      </div>    
+    <script>
+        let intervalId;
+        let body = document.querySelector('body')
+       
+        function colorChange(){
+        const hex = '0123456789ABCDEF'
+        let randomHex = '#'
+        for(let i=0; i<6; i++){
+            randomHex+= hex[Math.floor(Math.random()*hex.length)]
+        }
+        // console.log(randomHex)
+         body.style.backgroundColor =  randomHex          
+        }
+          function Start(){
+          if(intervalId){
+            intervalId= setInterval(colorChange,1000)
+          }
+         }
+
+         function Stop(){
+            clearInterval(intervalId)
+            intervalId = null
+         }
+
+        
+    </script>
+</body>
+</html>
